@@ -60,6 +60,7 @@ const App = (props) => {
 		<div>
 			<a href="https://www.kaggle.com/competitions/godaddy-microbusiness-density-forecasting" target="_blank">←back to kaggle</a>
 			<h1>GoDaddy web vizualiser</h1>
+			<a href="https://github.com/HNJ755329/godaddy_visualizer" target="_blank">github</a>
 			<div>
 				<div class="input-group mt-4 w-50">
 					<label for="csv" class="input-group-text">Update submission.csv:</label>
