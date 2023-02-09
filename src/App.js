@@ -46,7 +46,7 @@ const App = (props) => {
 
 	useEffect(() => {
 		setFilter(setyyyymmdd(year, month, day));
-		csv("train.csv").then(counties => {
+		csv("train_short.csv").then(counties => {
 			let contents = counties.map(elem => ({id: Number(elem.row_id.split("_")[0]), yyyymmdd: elem.row_id.split("_")[1], density: elem.microbusiness_density}));
 			let ymd = new Set(contents.map(elem => elem.yyyymmdd));
 			for (const x of ymd) {
