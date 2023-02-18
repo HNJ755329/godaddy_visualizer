@@ -1,26 +1,25 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {ComposableMap, Geographies, Geography} from "react-simple-maps";
 import {scaleLinear} from "d3-scale";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
 
-const colorScale = scaleLinear()
-	.domain([0, 10])
-	.range(["white", "red"])
-
-
-
 const MapChart = (props) => {
+	const colorScale = scaleLinear()
+		.domain([props.min_value, props.max_value])
+		.range([props.min_color, props.max_color])
 
 	let sample_colors = new Array();
 	for (let i = 0; i <= 10; i++) {
-		sample_colors.push(<span style={{background: colorScale(i)}
-		} >_{i}_ </span >);
+		const value = Number(props.min_value) + i * (Number(props.max_value) - Number(props.min_value)) / 10;
+		sample_colors.push(<span style={{background: colorScale(value)}
+		} > {Number(value)} </span >);
 
 	}
 
 	return (
 		<>
+			{props.col} :
 			{sample_colors}
 
 			<ComposableMap projection="geoAlbersUsa">
@@ -33,7 +32,7 @@ const MapChart = (props) => {
 									<Geography
 										key={geo.rsmKey}
 										geography={geo}
-										fill={colorScale(cur ? cur.density : "#EEE")}
+										fill={colorScale(cur ? cur[props.col] : "#EEE")}
 									/>
 								);
 							}
