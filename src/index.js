@@ -6,9 +6,11 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+	<React.StrictMode>
+		<App />
+		<a href="https://www.kaggle.com/competitions/godaddy-microbusiness-density-forecasting" target="_blank" rel="noopener noreferrer">back to kaggle</a><br />
+		<a href="https://github.com/HNJ755329/godaddy_visualizer" target="_blank" rel="noopener noreferrer">github</a>
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
